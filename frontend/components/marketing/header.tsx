@@ -25,6 +25,8 @@ export default function HeroHeader() {
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
+
+
     return (
         <header>
             <nav

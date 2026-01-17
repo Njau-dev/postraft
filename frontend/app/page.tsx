@@ -6,13 +6,15 @@ import FAQ from "@/components/marketing/faq"
 import CTA from "@/components/marketing/cta"
 import Footer from "@/components/marketing/footer"
 import HeroSection from "@/components/marketing/hero-section"
+import IntegrationsSection from "@/components/marketing/integrations"
 
-export default function HomePage() {
+export default function LandingPage() {
   return (
     <main className="min-h-screen">
       <HeroHeader />
       <HeroSection />
       <FeaturesSection />
+      <IntegrationsSection />
       <Pricing />
       <Testimonials />
       <FAQ />
