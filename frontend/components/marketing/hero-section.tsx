@@ -71,8 +71,15 @@ export default function HeroSection() {
                             className="mask-b-from-35% mask-b-to-90% absolute inset-0 top-56 -z-20 lg:top-32">
                             <Image
                                 src="/images/night-background.webp"
-                                alt="background"
+                                alt="night background"
                                 className="hidden size-full dark:block"
+                                width="3276"
+                                height="4095"
+                            />
+                            <Image
+                                src="/images/light-background.webp"
+                                alt="light background"
+                                className="block size-full dark:hidden"
                                 width="3276"
                                 height="4095"
                             />
@@ -142,7 +149,7 @@ export default function HeroSection() {
                                             asChild
                                             size="lg"
                                             className="rounded-xl px-5 text-base">
-                                            <Link href="#link">
+                                            <Link href="/register">
                                                 <span className="text-nowrap">Start Building</span>
                                             </Link>
                                         </Button>

@@ -19,7 +19,8 @@ class Config:
 
     # JWT
     JWT_SECRET_KEY = os.getenv('JWT_SECRET_KEY', 'jwt-secret-key')
-    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=24)
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(seconds=int(os.getenv(
+        'JWT_ACCESS_TOKEN_EXPIRES', 3600)))  # 1 hour
 
     # Redis
     REDIS_URL = os.getenv('REDIS_URL', 'redis://localhost:6379/0')
@@ -41,6 +42,16 @@ class Config:
     # File Upload
     MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
     ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'avif', 'webp'}
+
+    # Brevo Configuration (API Key)
+    BREVO_API_KEY = os.getenv('BREVO_API_KEY')
+    BREVO_SENDER_EMAIL = os.getenv('BREVO_SENDER_EMAIL')
+    BREVO_SENDER_NAME = os.getenv('BREVO_SENDER_NAME', 'PostRaft Support')
+
+    # Password Reset Configuration
+    PASSWORD_RESET_URL = os.getenv(
+        'PASSWORD_RESET_URL', 'http://localhost:3000/reset-password')
+    PASSWORD_RESET_TOKEN_EXPIRY = timedelta(hours=1)
 
 
 class DevelopmentConfig(Config):

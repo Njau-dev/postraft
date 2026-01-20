@@ -86,7 +86,7 @@ export default function HeroHeader() {
                                     variant="outline"
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
+                                    <Link href="/login">
                                         <span>Login</span>
                                     </Link>
                                 </Button>
@@ -94,7 +94,7 @@ export default function HeroHeader() {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled && 'lg:hidden')}>
-                                    <Link href="#">
+                                    <Link href="/register">
                                         <span>Sign Up</span>
                                     </Link>
                                 </Button>
@@ -102,7 +102,7 @@ export default function HeroHeader() {
                                     asChild
                                     size="sm"
                                     className={cn(isScrolled ? 'lg:inline-flex' : 'hidden')}>
-                                    <Link href="#">
+                                    <Link href="/register">
                                         <span>Get Started</span>
                                     </Link>
                                 </Button>
