@@ -1,17 +1,28 @@
+import { ReactNode } from 'react';
 import ProtectedRoute from '@/components/shared/protected-route';
+import { SidebarInset, SidebarProvider } from '@/components/ui/side-bar';
+import { AppSidebar } from '@/components/dashboard/app-sidebar';
+import { SiteHeader } from '@/components/dashboard/site-header';
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+interface DashboardLayoutProps {
+  children: ReactNode;
+}
+
+export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
     <ProtectedRoute>
-      <div className="min-h-screen bg-slate-50">
-        {/* We'll add sidebar and header in Day 5 */}
-
-        {children}
-      </div>
+      <SidebarProvider
+        style={{
+          "--sidebar-width": "calc(var(--spacing) * 72)",
+          "--header-height": "calc(var(--spacing) * 12)",
+        } as React.CSSProperties}
+      >
+        <AppSidebar variant="inset" />
+        <SidebarInset>
+          <SiteHeader />
+          <div className="flex flex-1 flex-col overflow-hidden">{children}</div>
+        </SidebarInset>
+      </SidebarProvider>
     </ProtectedRoute>
   );
 }

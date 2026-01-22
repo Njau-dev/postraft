@@ -26,10 +26,10 @@ def create_app(config_name='default'):
     from app.models import user, plan, product, template, campaign, poster  # noqa: F401 means unused import
 
     # Register blueprints
-    from app.routes import auth
+    from app.routes import auth, products
 
     app.register_blueprint(auth.bp)
-    # app.register_blueprint(products.bp, url_prefix='/api/products')
+    app.register_blueprint(products.bp)
     # app.register_blueprint(templates.bp, url_prefix='/api/templates')
     # app.register_blueprint(campaigns.bp, url_prefix='/api/campaigns')
     # app.register_blueprint(posters.bp, url_prefix='/api/posters')

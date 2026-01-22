@@ -39,9 +39,8 @@ class Config:
     # CORS
     FRONTEND_URL = os.getenv('FRONTEND_URL', 'http://localhost:3000')
 
-    # File Upload
-    MAX_CONTENT_LENGTH = 16 * 1024 * 1024  # 16MB max file size
-    ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'avif', 'webp'}
+    # Storage Provider
+    STORAGE_PROVIDER = os.getenv('STORAGE_PROVIDER', 'cloudinary')
 
     # Brevo Configuration (API Key)
     BREVO_API_KEY = os.getenv('BREVO_API_KEY')

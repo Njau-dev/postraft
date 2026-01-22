@@ -132,7 +132,8 @@ class EmailService:
         # Get frontend URL from config
         frontend_url = current_app.config.get(
             'FRONTEND_URL', 'http://localhost:3000')
-        reset_url = f"{frontend_url}/reset-password"
+        reset_url = current_app.config.get(
+            'PASSWORD_RESET_URL', f'{frontend_url}/reset-password')
         reset_link = f"{reset_url}?token={reset_token}"
 
         subject = "Reset Your Password"
