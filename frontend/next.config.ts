@@ -7,7 +7,10 @@ const nextConfig: NextConfig = {
 
 module.exports = {
   images: {
-    domains: ['ik.imagekit.io'],
+    domains: [
+      'ik.imagekit.io',
+      'res.cloudinary.com'
+    ],
   },
 }
 

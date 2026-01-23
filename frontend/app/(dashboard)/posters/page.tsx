@@ -1,6 +1,6 @@
 'use client';
 
-import EmptyState from '@/components/shared/EmptyState';
+import EmptyState from '@/components/shared/empty-state';
 import { Image } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 

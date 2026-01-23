@@ -249,8 +249,7 @@ def upload_product_image(current_user, product_id):
         # Delete old image if exists
         if product.image_url:
             delete_image(product.image_url)
-        
-        # Upload to S3
+
         image_url = upload_image(file, folder='products')
         
         if not image_url:
