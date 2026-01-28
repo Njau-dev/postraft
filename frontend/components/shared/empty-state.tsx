@@ -1,5 +1,6 @@
 import { LucideIcon } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
+import { VariantProps } from 'class-variance-authority';
 
 interface EmptyStateProps {
   icon: LucideIcon;
@@ -8,6 +9,8 @@ interface EmptyStateProps {
   action?: {
     label: string;
     onClick: () => void;
+    variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
+    icon?: LucideIcon;
   };
 }
 
@@ -27,7 +30,10 @@ export default function EmptyState({
         {description}
       </p>
       {action && (
-        <Button onClick={action.onClick}>{action.label}</Button>
+        <Button onClick={action.onClick} variant={action.variant}>
+          {action.icon && <action.icon className="h-4 w-4" />}
+          {action.label}
+        </Button>
       )}
     </div>
   );

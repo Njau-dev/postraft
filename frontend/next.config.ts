@@ -9,7 +9,8 @@ module.exports = {
   images: {
     domains: [
       'ik.imagekit.io',
-      'res.cloudinary.com'
+      'res.cloudinary.com',
+      'placehold.co'
     ],
   },
 }

@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import api from '@/lib/api';
 import { setToken, getToken, removeToken } from '@/lib/auth';
 import { User, Plan } from '@/types';
+import { toast } from 'sonner';
 
 interface AuthContextType {
   user: User | null;
@@ -57,6 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await refreshUser();
 
     router.push('/dashboard');
+    toast.success('Logged in successfully');
   };
 
   const register = async (email: string, password: string, user_name: string) => {
@@ -77,6 +79,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(null);
     setPlan(null);
     router.push('/login');
+    toast.success('Logged out successfully');
   };
 
   const refreshUser = async () => {

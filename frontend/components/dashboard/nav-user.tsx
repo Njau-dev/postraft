@@ -20,11 +20,17 @@ import {
     SidebarMenuItem,
     useSidebar,
 } from '@/components/ui/side-bar'
+import { useAuth } from '@/hooks/useAuth'
 import { User } from '@/types'
 import { ArrowLeftCircle, BellDot, CreditCard, MoreVertical, UserCircle } from 'lucide-react'
 
 export function NavUser({ user }: { user: User }) {
     const { isMobile } = useSidebar()
+    const { logout } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+    }
 
     return (
         <SidebarMenu>
@@ -84,10 +90,15 @@ export function NavUser({ user }: { user: User }) {
                             </DropdownMenuItem>
                         </DropdownMenuGroup>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem>
-                            <ArrowLeftCircle />
-                            Log out
-                        </DropdownMenuItem>
+                        <button onClick={handleLogout} className='w-full'>
+                            <DropdownMenuItem
+                                variant='destructive'
+                            >
+                            
+                                    <ArrowLeftCircle />
+                                    Log out
+                            </DropdownMenuItem>
+                        </button>
                     </DropdownMenuContent>
                 </DropdownMenu>
             </SidebarMenuItem>

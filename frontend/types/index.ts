@@ -35,11 +35,13 @@ export interface Template {
   user_id?: number;
   name: string;
   format: 'square' | 'story' | 'a4';
+  description?: string;
   background_url?: string;
   json_definition: Record<string, any>;
   preview_url?: string;
   is_system: boolean;
   created_at: string;
+  last_used_at?: string;
 }
 
 export interface Campaign {
