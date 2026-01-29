@@ -70,6 +70,8 @@ export default function TemplateCard({
     return template.json_definition?.layers?.length || 0;
   };
 
+  console.log('View mode on card:', viewMode);
+
   const getPopularityBadge = () => {
     // Mock popularity based on template ID or last_used_at
     const lastUsed = template.last_used_at ? new Date(template.last_used_at) : null;

@@ -26,13 +26,13 @@ def create_app(config_name='default'):
     from app.models import user, plan, product, template, campaign, poster  # noqa: F401 means unused import
 
     # Register blueprints
-    from app.routes import auth, products, templates
+    from app.routes import auth, products, templates, posters
 
     app.register_blueprint(auth.bp)
     app.register_blueprint(products.bp)
     app.register_blueprint(templates.bp)
+    app.register_blueprint(posters.bp)  # ISSUE FOR TESTING IS HERE
     # app.register_blueprint(campaigns.bp, url_prefix='/api/campaigns')
-    # app.register_blueprint(posters.bp, url_prefix='/api/posters')
     # app.register_blueprint(billing.bp, url_prefix='/api/billing')
 
     @app.route('/health')

@@ -106,6 +106,10 @@ export default function TemplatesPage() {
     }
   };
 
+  const handleViewModeChange = (mode: 'grid' | 'list') => {
+    setViewMode(mode);
+  };
+
   const formatStats = [
     { format: 'square', count: templates?.filter(t => t.format === 'square').length || 0, icon: Grid3x3 },
     { format: 'story', count: templates?.filter(t => t.format === 'story').length || 0, icon: TrendingUp },
@@ -178,7 +182,7 @@ export default function TemplatesPage() {
 
         {/* Main Content Card */}
         <Card className="border-2">
-          <CardHeader className="bg-secondary/50">
+          <CardHeader className="bg-secondary/50 py-6">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <CardTitle>Template Library</CardTitle>
@@ -207,7 +211,9 @@ export default function TemplatesPage() {
                       size="sm"
                       variant={viewMode === 'grid' ? 'secondary' : 'ghost'}
                       className="h-8 w-8 p-0"
-                      onClick={() => setViewMode('grid')}
+                      onClick={
+                        () => handleViewModeChange('grid')
+                      }
                     >
                       <Grid3x3 className="h-4 w-4" />
                     </Button>
@@ -215,7 +221,9 @@ export default function TemplatesPage() {
                       size="sm"
                       variant={viewMode === 'list' ? 'secondary' : 'ghost'}
                       className="h-8 w-8 p-0"
-                      onClick={() => setViewMode('list')}
+                      onClick={
+                        () => handleViewModeChange('list')
+                      }
                       disabled
                       title="Coming soon"
                     >
@@ -323,7 +331,7 @@ export default function TemplatesPage() {
                       {systemTemplates.length} templates
                     </Badge>
                   </div>
-                  <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                     {systemTemplates.map((template) => (
                       <TemplateCard
                         key={template.id}

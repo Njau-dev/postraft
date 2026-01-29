@@ -39,6 +39,35 @@ class Poster(db.Model):
             'error_message': self.error_message,
             'created_at': self.created_at.isoformat(),
         }
-    
+
+    def to_dict_detailed(self):
+        """Convert to dictionary with related data"""
+        result = self.to_dict()
+
+        # Add product info
+        if self.product:
+            result['product'] = {
+                'id': self.product.id,
+                'name': self.product.name,
+                'price': self.product.price,
+            }
+
+        # Add template info
+        if self.template:
+            result['template'] = {
+                'id': self.template.id,
+                'name': self.template.name,
+                'format': self.template.format,
+            }
+
+        # Add campaign info if present
+        if self.campaign:
+            result['campaign'] = {
+                'id': self.campaign.id,
+                'name': self.campaign.name,
+            }
+
+        return result
+
     def __repr__(self):
         return f'<Poster {self.id}>'

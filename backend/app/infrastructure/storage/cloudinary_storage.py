@@ -28,7 +28,7 @@ class CloudinaryStorage:
         Upload file to Cloudinary
 
         Args:
-            file: File object from request
+            file: File object from request or BytesIO
             folder: Cloudinary folder (products, templates, posters, etc.)
 
         Returns:
@@ -38,7 +38,9 @@ class CloudinaryStorage:
             self._configure()
 
             # Generate unique public_id
-            ext = os.path.splitext(file.filename)[1]
+            filename = getattr(file, 'filename', getattr(
+                file, 'name', 'file.png'))
+            ext = os.path.splitext(filename)[1]
             public_id = f"{folder}/{uuid.uuid4()}"
 
             # Upload file
